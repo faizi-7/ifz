@@ -1,0 +1,59 @@
+/* BlogCard.module.css */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+  border: 2px solid black;
+  transition: background-color ease 0.3s;
+  cursor: pointer;
+  
+}
+.card:hover {
+  background-color: rgb(226, 226, 226);
+}
+.card:hover .imageContainer {
+  filter: grayscale(100%);
+}
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-bottom: 2px solid black;
+}
+
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.imageDate {
+
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: var(--secondary);
+  color: white;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  color: var(--text);
+}
+.content {
+  padding: 16px;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.monthAgo {
+  margin-top: 8px;
+  color: #888;
+  font-size: 14px;
+}

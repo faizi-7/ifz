@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  color: #333;
+  padding: 20px;
+  border: 2px solid black;
+  border-top: none;
+}
+
+.icon {
+  font-size: 4rem;
+  color: var(--primary);
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.message {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.timer {
+  margin-bottom: 20px;
+  color: var(--secondary);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.homeButton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text);
+  background-color: var(--secondary);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s ease;
+  border: 2px solid black;
+}
+
+.homeButton:hover {
+  background-color: var(--primary);
+}
+
+.emoji {
+  font-size: 1.2rem;
+}

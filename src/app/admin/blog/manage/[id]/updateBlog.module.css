@@ -1,0 +1,44 @@
+.heading {
+  font-size: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary);
+}
+
+.inputBox {
+  padding: 10px 20px;
+  border: none;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.inputBox:focus {
+  outline: none;
+}
+
+.btn1, .btn2 {
+  padding: 10px 20px;
+  border: none;
+  border-bottom: 2px solid black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn1 {
+  background-color: var(--primary);
+  color: var(--text);
+}
+
+.btn2 {
+  background-color: var(--secondary);
+  color: var(--text);
+  font-weight: bold;
+}

@@ -1,0 +1,11 @@
+.heading {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: lightblue;
+  padding: 20px;
+}

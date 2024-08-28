@@ -1,0 +1,14 @@
+.container {
+  background-color: white;
+}
+.heading {
+  font-size: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+
+}
+.cardContainer {
+  display : grid;
+  grid-template-columns: 1fr 1fr;
+  
+}

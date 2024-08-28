@@ -1,0 +1,30 @@
+.card {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid black;
+}
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+}
+.topContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cardHeading {
+  font-size: 18px;
+  font-weight: bold;
+}
+.btn {
+  border: 2px solid black;
+  padding: 8px 16px;
+  background: var(--primary);
+  cursor: pointer;
+}
+.buttonGroup .btn:nth-child(2) {
+  background-color: var(--secondary);
+}

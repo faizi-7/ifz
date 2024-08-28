@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  border: 2px solid black;
+  border-top: none;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.flags {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon {
+  height: 30px;
+  width: 30px;
+  border: 2px solid black;
+  border-radius: 100px;
+  cursor: pointer;
+}

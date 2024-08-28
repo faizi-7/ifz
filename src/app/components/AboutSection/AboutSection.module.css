@@ -1,0 +1,114 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  background-color: white;
+}
+.heading {
+  font-size: 40px;
+  font-weight: 600;
+  border-right: 2px solid black;
+  padding: 20px 40px;
+  width: max-content;
+}
+.content {
+  font-size: 30px;
+  display: flex;
+}
+.child1 {
+  border-right: 2px solid black;
+}
+.child2 {
+  /* border: 2px solid black; */
+}
+.childHeading {
+  border: 2px solid black;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+}
+.childContent {
+  padding: 30px;
+  font-size: 24px;
+  line-height: 40px;
+  color: rgb(95, 95, 95);
+}
+.appleDots {
+  display: flex;
+  gap: 8px; /* Adjust spacing between dots */
+}
+
+.dot {
+  width: 20px;  /* Adjust size of dots */
+  height: 20px; /* Adjust size of dots */
+  border-radius: 50%;
+  border: 2px solid black;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0); /* Shadow effect */
+}
+
+.dot:nth-child(1) {
+  background-color: var(--primary); /* Red dot */
+}
+
+.dot:nth-child(2) {
+  background-color: white; /* Yellow dot */
+}
+
+.dot:nth-child(3) {
+  background-color: var(--secondary); /* Green dot */
+}
+
+@media (max-width: 1000px) {
+  .heading {
+    font-size: 30px;
+    font-weight: 600;
+    border-right: 2px solid black;
+    padding: 20px 40px;
+    width: max-content;
+  }
+  .content {
+    font-size: 24px;
+    display: flex;
+  }
+  .childHeading {
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+  }
+  .childContent {
+    padding: 20px;
+    font-size: 20px;
+    line-height: 40px;
+    color: rgb(95, 95, 95);
+  }
+}
+@media (max-width: 757px) {
+  .content {
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width : 575px) {
+  .heading {
+    align-self: center;
+    width: max-content;
+    background-color: white;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+  
+  }
+  .childContent {
+    padding: 16px;
+    font-size: 20px;
+    /* line-height: 40px; */
+    color: rgb(95, 95, 95);
+  }
+}

@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  border: 2px solid black;
+  border-top: none;
+}
+.left {
+  flex: 1;
+  border-right: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  color: var(--text);
+}
+.right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  gap: 10px;
+}
+.btn {
+  background-color: var(--secondary);
+  border: 2px solid black;
+  outline: none;
+}
+.input {
+  border: 2px solid black;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .left {
+    padding: 80px 0;
+    border-bottom: 2px solid black;
+    border-right: none;
+  }
+}

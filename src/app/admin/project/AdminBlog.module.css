@@ -1,0 +1,20 @@
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+}
+.sidebar {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+}
+.mainbar {
+  flex: 4;
+  padding: 20px;
+}
+.navigationBtn {
+  padding: 5px;
+  cursor: pointer;
+}
+.navigationBtn:hover {
+  background-color: gray;
+}
