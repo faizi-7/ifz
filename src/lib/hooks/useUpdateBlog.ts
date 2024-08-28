@@ -1,7 +1,8 @@
 import { useState } from "react";
 interface Body {
   title ?: string,
-  description ?: string
+  description ?: string,
+  thumbnail ?:string
 }
 export function useUpdateBlog() {
   const [res, setRes]= useState({
