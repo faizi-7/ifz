@@ -22,7 +22,7 @@ export default function RootLayout({
       <body>
         <div className="container">
           <ToastContainer position="top-right" autoClose={2000} />
-          <ThemeProvider >
+          <ThemeProvider defaultTheme='light' >
               <div>
                 <Header />
               </div>
