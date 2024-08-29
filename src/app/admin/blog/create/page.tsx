@@ -2,9 +2,8 @@
 import { useState } from "react";
 import styles from "./adminCreate.module.css";
 import { useCreateBlog } from "@/lib/hooks/useCreateBlog";
-import { CldUploadWidget,  CloudinaryUploadWidgetInfo,  CloudinaryUploadWidgetResults } from "next-cloudinary";
 import Loader from "@/app/components/Loader/Loader";
-import { UploadFile } from "@mui/icons-material";
+import UploadButton from "@/lib/utils";
 
 export default function createBlog() {
   const [title, setTitle] = useState("");
@@ -36,32 +35,7 @@ export default function createBlog() {
           onChange={(e) => setDesc(e.target.value)}
           rows={10}
         />
-        <CldUploadWidget
-          uploadPreset="ifaizprivate07"
-          options={{ sources: ["local", "url"] }}
-          onSuccess={(result) => {
-            if (typeof result.info === "object" && result.info !== null) {
-              const url = (result.info as CloudinaryUploadWidgetInfo).secure_url;
-              console.log(url);
-              if (url) {
-                setThumbnail(url.toString());
-              } else {
-                console.error("Upload failed or no URL returned.");
-              }
-            } else {
-              console.error("Unexpected result type:", typeof result.info);
-            }
-          }}
-          onQueuesEnd={(result, { widget }) => {
-            widget.close();
-          }}
-        >
-          {({ open }) => (
-            <button onClick={() => open()} className={styles.btn1}>
-              Upload the Project Image <UploadFile />
-            </button>
-          )}
-        </CldUploadWidget>
+        <UploadButton setThumbnail={setThumbnail}/>
         <button onClick={postHandler} className={styles.btn2}>Post Blog</button>
         {res.loading ? <Loader/> : <></>}
         <div>{res.message}</div>

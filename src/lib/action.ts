@@ -34,4 +34,3 @@ export async function deleteProject(id : string) {
     return;
   }
 }
-

@@ -5,14 +5,21 @@ export async function GET(request: Request,
   { params }: { params: { id: string } }
 ) {
   try {
-    await connectDb()
-    const data= await Blog.findById(params.id)
-    return Response.json(data)
+    await connectDb();
+    const data = await Blog.findById(params.id);
+
+    if (!data) {
+      return new Response("Blog not found", { status: 404 });
+    }
+
+    return new Response(JSON.stringify(data), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (err: any) {
-    return new Response(err.message, { status: 400 })
+    return new Response(err.message, { status: 400 });
   }
 }
-
 export async function PUT(request: Request,
   { params }: { params: { id: string } }
 ) {

@@ -84,6 +84,19 @@ h6 {
   }
 }
 
+/* Global button  */
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-bottom: 2px solid black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--primary);
+  color: var(--text);
+}
 
 /* Themes */
 :root {
