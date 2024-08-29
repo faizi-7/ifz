@@ -16,9 +16,11 @@
   display: flex;
 }
 .child1 {
+  flex: 1;
   border-right: 2px solid black;
 }
 .child2 {
+  flex: 1;
   /* border: 2px solid black; */
 }
 .childHeading {
@@ -103,12 +105,23 @@
     font-weight: 600;
     padding: 10px 20px;
     border: none;
-  
+    
   }
   .childContent {
     padding: 16px;
-    font-size: 20px;
-    /* line-height: 40px; */
+    font-size: 18px;
+    line-height: 1.5;
     color: rgb(95, 95, 95);
+  }
+  .content {
+    font-size: 20px;
+  }
+  .childHeading {
+    padding: 10px;
+  }
+  .dot {
+    height: 14px;
+    width: 14px;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0); /* Shadow effect */
   }
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-interface Blog {
+interface BlogInterface {
   title: string;
   description: string;
   _id: string;
@@ -10,17 +10,18 @@ interface Blog {
 }
 
 export function useGetBlogs() {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [blogs, setBlogs] = useState<BlogInterface[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [err, setErr] = useState<string>("");
 
   async function getBlogs() {
     setErr("");
+    setLoading(true);
 
     try {
-      const res = await fetch("/api/admin/blog", { method: "GET" });
-      if (res.ok) {
-        const data = await res.json();
+      const res = await fetch('/api/admin/blog', {method : "GET"})
+      const data=  await res.json()
+      if (res) {
         setBlogs(data);
       } else {
         setErr("Error Getting Blogs");
@@ -29,7 +30,7 @@ export function useGetBlogs() {
       console.error(err.message);
       setErr(err.message || String(err));
     } finally {
-      setLoading(false); // Set loading to false after the fetch is complete
+      setLoading(false);
     }
   }
 

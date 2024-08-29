@@ -1,16 +1,41 @@
-"use client";
 import styles from "./Blog.module.css";
-import { useGetBlogs } from "@/lib/hooks/useGetBlogs";
-import { useEffect } from "react";
+import { Blog } from "@/models/Blog";
 import BlogCard from "../components/BlogCard/BlogCard";
-import Loader from "../components/Loader/Loader";
+import { connectDb } from "@/lib/mongodb";
 
-export default function Page() {
-  const { blogs, err, getBlogs, loading } = useGetBlogs();
+interface BlogInterface {
+  title: string;
+  description: string;
+  _id: string;
+  createdAt: string;
+  updatedAt: string;
+  thumbnail: string;
+}
 
-  useEffect(() => {
-    getBlogs()
-  }, []);
+interface PageProps {
+  blogs: BlogInterface[];
+  err: string | null;
+}
+
+export default async function Page() {
+  let blogs: BlogInterface[] = [];
+  let err: string | null = null;
+
+  try {
+    await connectDb();
+    const res = await Blog.find().lean();
+    blogs = res.map((blog: any) => ({
+      title: blog.title,
+      description: blog.description,
+      _id: blog._id.toString(),
+      createdAt: blog.createdAt.toISOString(),
+      updatedAt: blog.updatedAt.toISOString(),
+      thumbnail: blog.thumbnail,
+    }));
+  } catch (error: any) {
+    console.error(error);
+    err = "Failed to load blogs.";
+  }
 
   return (
     <div className={styles.container}>
@@ -21,9 +46,7 @@ export default function Page() {
         </div>
       </div>
       <div className={styles.blogContainer}>
-        {loading ? (
-          <Loader/>
-        ) : err ? (
+        {err ? (
           <div>Failed to load blogs. Please try again later.</div>
         ) : blogs.length > 0 ? (
           blogs.map((blog) => (
@@ -42,4 +65,3 @@ export default function Page() {
     </div>
   );
 }
-

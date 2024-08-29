@@ -23,7 +23,7 @@
 .left {
   flex: 1;
   position: relative;
-  height: 300px; /* Set a height here */
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +32,7 @@
 .projectImage {
   object-fit: cover;
   width: 100%;
-  height: 100%;
+  height: 300px;
 }
 
 .right {
@@ -96,21 +96,20 @@
   }
 
   .left {
+    flex: none;
     width: 100%;
-    height: 400px; /* Set a height for mobile view */
+    height: 300px;
   }
-
+  
   .right {
+    flex: none;
     width: 100%;
-    height: auto;
     border-top: 2px solid black;
     border-left: none;
   }
 
   .projectImage {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
     display: block;
   }
   .projectTechs{
@@ -127,5 +126,8 @@
     padding: 10px 20px;
     border: none;
   
+  }
+  .right {
+    padding: 20px;
   }
 }

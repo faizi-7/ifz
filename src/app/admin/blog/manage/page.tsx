@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 import Loader from '@/app/components/Loader/Loader';
 import AdminBlogCard from '@/app/components/AdminBlogCard/AdminBlogCard';
 
-
 export default function AdminManageBlog() {
   const router = useRouter();
   const { blogs, err, loading, getBlogs } = useGetBlogs();

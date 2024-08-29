@@ -1,7 +1,9 @@
+import { connectDb } from "@/lib/mongodb";
 import styles from "./SingleBlog.module.css";
 import MDRender from "@/app/components/MDRender/MDRender";
+import { Blog } from "@/models/Blog";
 
-interface Blog {
+interface BlogInterface {
   title: string;
   description: string;
   _id: string;
@@ -10,14 +12,14 @@ interface Blog {
   thumbnail: string;
 }
 
-
 export default async function SingleBlogPage({ params }: { params: { slug: string } }) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/blog/${params.slug}`, {
-    next: { revalidate: 60 }, 
-  });
-  
-  const blog = await response.json();
+  await connectDb();
 
+  const blog = await Blog.findById(params.slug).lean<BlogInterface | null>();
+
+  if (!blog) {
+    return <div>Blog not found</div>;
+  }
 
   const formattedDate = new Date(blog.createdAt).toLocaleDateString(undefined, {
     year: "numeric",

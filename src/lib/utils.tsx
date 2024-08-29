@@ -1,13 +1,15 @@
 import { UploadFile } from "@mui/icons-material";
-import { CldUploadWidget,  CloudinaryUploadWidgetInfo } from "next-cloudinary";
+import { CldUploadWidget, CloudinaryUploadWidgetInfo } from "next-cloudinary";
 interface UploadButtonProps {
   setThumbnail: (url: string) => void;
 }
 
-export default function UploadButton({ setThumbnail } : UploadButtonProps ) {
+export default function UploadButton({ setThumbnail }: UploadButtonProps) {
+  let preset = process.env.NEXT_PUBLIC_CLD_UPLOAD_PRESET || "";
+  console.log(preset);
   return (
-      <CldUploadWidget
-      uploadPreset={process.env.CLD_UPLOAD_PRESET || ""}
+    <CldUploadWidget
+      uploadPreset={preset}
       options={{ sources: ["local", "url"] }}
       onSuccess={(result) => {
         if (typeof result.info === "object" && result.info !== null) {
@@ -25,12 +27,12 @@ export default function UploadButton({ setThumbnail } : UploadButtonProps ) {
       onQueuesEnd={(result, { widget }) => {
         widget.close();
       }}
-      >
+    >
       {({ open }) => (
         <button onClick={() => open()} className="button">
           Upload the Project Image <UploadFile />
         </button>
       )}
-      </CldUploadWidget>
-  )
+    </CldUploadWidget>
+  );
 }

@@ -1,4 +1,4 @@
-import styles from './SingleBlog.module.css'
+import styles from './Blog.module.css'
 import Loader from "@/app/components/Loader/Loader";
 
 export default function loading() {

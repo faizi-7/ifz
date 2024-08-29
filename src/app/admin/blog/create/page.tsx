@@ -4,6 +4,7 @@ import styles from "./adminCreate.module.css";
 import { useCreateBlog } from "@/lib/hooks/useCreateBlog";
 import Loader from "@/app/components/Loader/Loader";
 import UploadButton from "@/lib/utils";
+import MarkdownEditor from "@/app/components/MarkdownEditor/MarkdownEditor";
 
 export default function createBlog() {
   const [title, setTitle] = useState("");
@@ -28,13 +29,14 @@ export default function createBlog() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <textarea
+        {/* <textarea
           className={styles.inputBox}
           placeholder="Enter Blog Content in Markdown..."
           value={desc}
           onChange={(e) => setDesc(e.target.value)}
           rows={10}
-        />
+        /> */}
+        <MarkdownEditor content={desc} setContent={setDesc}/>
         <UploadButton setThumbnail={setThumbnail}/>
         <button onClick={postHandler} className={styles.btn2}>Post Blog</button>
         {res.loading ? <Loader/> : <></>}
